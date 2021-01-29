@@ -1,8 +1,8 @@
-# opa
+# docker-openldap-exporter
 
 ![Github Action Badge](https://github.com/renault-digital/docker-openldap-exporter/workflows/.github/workflows/dockerimage.yml/badge.svg)
 
-Auto-trigger docker build for [open policy agent](https://www.openpolicyagent.org/) when new release is announced. This image enables usage with gitlab-ci
+Auto-trigger docker build for [Docker OpenLdap Exporter](https://github.com/renault-digital/openldap_exporter) when new release is announced.
 
 [![DockerHub Badge](http://dockeri.co/image/renaultdigital/openldap-exporter)](https://hub.docker.com/r/renaultdigital/openldap-exporter/)
 
@@ -29,7 +29,7 @@ https://hub.docker.com/r/renaultdigital/openldap-exporter/tags/
     # mount local folders in container.
     docker run -ti --rm renaultdigital/openldap-exporter
 
-    # Run opa with special version. The tag is opa's version
+    # Run openldap-exporter with special version. The tag is openldap-exporter's version
     docker run -ti --rm renaultdigital/openldap-exporter:v2.1
 
     # run container as command
