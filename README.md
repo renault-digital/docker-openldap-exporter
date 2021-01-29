@@ -45,7 +45,7 @@ Mostly it is used during CI/CD (continuous integration and continuous delivery) 
 
 # The Processes to build this image
 
-* Enable GITHUB ACTIONS CI cronjob on this repo to run build daily on master branch
+* Enable GITHUB ACTIONS CI cronjob on this repo to run build daily on main branch
 * Check if there are new tags/releases announced via Github REST API
 * Match the exist docker image tags via Hub.docker.io REST API
 * If not matched, build the image with release version and push to https://hub.docker.com/
