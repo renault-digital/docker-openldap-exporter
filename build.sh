@@ -19,12 +19,12 @@ build() {
   OPENLDAP_EXPORTER_VERSION=$(echo "$tag" | cut -c2-)
   docker build --no-cache --build-arg OPENLDAP_EXPORTER_VERSION="${OPENLDAP_EXPORTER_VERSION}" -t ${IMAGE}:"${tag}" .
 
-  if [[ "$GITHUB_REF" == "refs/heads/master" ]]; then
+  if [[ "$GITHUB_REF" == "refs/heads/main" ]]; then
     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
     docker push ${IMAGE}:"${tag}"
 
   else
-    echo "Not on master, ignore push"
+    echo "Not on main, ignore push"
   fi
 }
 
@@ -73,7 +73,7 @@ if [  "$(echo "$digest" | jq -r ".message")" == "null" ]; then
   fi
 fi
 
-if [[ "$GITHUB_REF" == "refs/heads/master" && "$GITHUB_EVENT_NAME" != "pull_request" ]]; then
+if [[ "$GITHUB_REF" == "refs/heads/main" && "$GITHUB_EVENT_NAME" != "pull_request" ]]; then
   echo "Update latest image to ${latest}"
 
   docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
