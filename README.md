@@ -1,6 +1,7 @@
 # docker-openldap-exporter
 
-![Github Action Badge](https://github.com/renault-digital/docker-openldap-exporter/workflows/.github/workflows/dockerimage.yml/badge.svg)
+![Docker Image CI Push](https://github.com/renault-digital/docker-openldap-exporter/workflows/Docker%20Image%20CI%20Push/badge.svg)
+![Docker Image Trivy](https://github.com/renault-digital/docker-openldap-exporter/workflows/Docker%20Image%20Trivy/badge.svg)
 
 Auto-trigger docker build for [Docker OpenLdap Exporter](https://github.com/renault-digital/openldap_exporter) when new release is announced.
 

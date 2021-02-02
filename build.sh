@@ -1,12 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Prerequisite
 # Make sure you set secret environment variables in Travis CI
 # DOCKER_USERNAME
 # DOCKER_PASSWORD
 # API_TOKEN
-
-set -e
 
 IMAGE="renaultdigital/openldap-exporter"
 REPOSITORY="tomcz/openldap_exporter"
@@ -16,8 +14,10 @@ build() {
 
   echo "Found new version, building the image ${IMAGE}:${tag}"
 
-  OPENLDAP_EXPORTER_VERSION=$(echo "$tag" | cut -c2-)
-  docker build --no-cache --build-arg OPENLDAP_EXPORTER_VERSION="${OPENLDAP_EXPORTER_VERSION}" -t ${IMAGE}:"${tag}" .
+  docker build --no-cache --build-arg OPENLDAP_EXPORTER_VERSION="${tag}" -t ${IMAGE}:"${tag}" .
+
+  echo "Test version"
+  docker run --rm ${IMAGE}:${tag} --help
 
   if [[ "$GITHUB_REF" == "refs/heads/main" ]]; then
     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
